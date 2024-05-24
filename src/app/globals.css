@@ -6,6 +6,13 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --background: 330, 10%, 4%;
+  --card: 210, 11%, 15%;
+  --primary: 47, 44%, 89%;
+  --muted: 0, 0%, 41%;
+  --card-alt: 30, 27%, 94%;
+  --overlay: 6, 24%, 8%;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +20,12 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --background: 330, 10%, 4%;
+    --card: 210, 11%, 15%;
+    --primary: 47, 44%, 89%;
+    --muted: 0, 0%, 41%;
+    --card-alt: 30, 27%, 94%;
+    --overlay: 6, 24%, 8%;
   }
 }
 

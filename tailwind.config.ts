@@ -13,6 +13,24 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        background: {
+          DEFAULT: 'hsl(var(--background))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          alt: 'hsl(var(--card))',
+        },
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))'
+        },
+        overlay: {
+          DEFAULT: 'hsl(var(--overlay))'
+        }
+      }
     },
   },
   plugins: [],
