@@ -1,9 +1,9 @@
 import React from 'react';
-import {motion} from 'framer-motion';
+import * as motion from '@/lib/motion';
 import Image from 'next/image';
 import {MutedText} from './shared/text.component';
 
-export function Bio() {
+export async function Bio() {
 	return (
 		<motion.div
 			className='mt-20 w-full flex items-center justify-center flex-col gap-10 lg:flex-row lg:gap-40 lg:px-20 lg:py-10'

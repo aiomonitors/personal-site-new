@@ -34,6 +34,12 @@ const config: Config = {
 				button: {
 					hover: 'hsl(var(--button-hover))',
 				},
+				project: {
+					image: 'hsl(var(--project-card-image-bg))',
+				},
+			},
+			dropShadow: {
+				project: '0px 0px 4px 2px rgba(255, 255, 255, 0.25)',
 			},
 			height: {
 				hero: 'calc(100vh - 120px)',

@@ -1,8 +1,8 @@
 
-'use client';
 import React from 'react';
 import Image from 'next/image';
-import {type Variants, motion} from 'framer-motion';
+import {type Variants} from 'framer-motion';
+import * as motion from '@/lib/motion';
 import {Nav} from './components/nav.component';
 import {Bio} from './components/bio.component';
 import {Hero} from './components/hero.component';
@@ -21,14 +21,10 @@ import {
 	SiPostgresql,
 	SiMongodb,
 	SiVercel,
-	SiTwitter,
-	SiGithub,
-	SiGmail,
-	SiLinkedin,
-	SiInstagram,
-	SiSpotify,
 } from 'react-icons/si';
 import {TechGrid, TechCard, TechTitle} from './components/tech-stack/tech-grid.component';
+import {Projects} from './components/projects/projects.component';
+import {Contact} from './components/contact/contact.component';
 
 export default function Home() {
 	const workVariants = {
@@ -150,6 +146,8 @@ export default function Home() {
 						</motion.div>
 					</motion.div>
 				</motion.div>
+				<Projects/>
+				<Contact/>
 			</div>
 		</main>
 	);

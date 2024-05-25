@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
+'use client';
 import React from 'react';
-import {motion} from 'framer-motion';
+import * as motion from '@/lib/motion';
 import Image from 'next/image';
 
 const textComponents = [

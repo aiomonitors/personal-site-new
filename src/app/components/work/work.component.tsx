@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import {motion} from 'framer-motion';
+import * as motion from '@/lib/motion';
 import {WorkItem, type WorkItemProps} from './work-item.component';
 
 const items = [

@@ -1,5 +1,5 @@
 import React from 'react';
-import {motion} from 'framer-motion';
+import * as motion from '@/lib/motion';
 import {cn} from '@/lib/utils';
 
 export function Nav() {
@@ -22,7 +22,7 @@ export function Nav() {
 				translateX: '-50%',
 			}}
 		>
-			<div className='w-full bg-card-alt py-3 px-2 rounded-lg flex items-center justify-between h-16'>
+			<div className='w-full bg-card-alt py-3 px-2 rounded-lg flex items-center justify-between h-16 border-muted/30 border-2'>
 				<div className='flex items-center gap-2'>
 					<span className='bg-button-hover text-3xl rounded-full flex items-center justify-center w-10 h-10'>🤒</span>
 					<span className='text-black text-md'>Shihab Chowdhury</span>
