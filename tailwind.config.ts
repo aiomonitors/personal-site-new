@@ -20,7 +20,7 @@ const config: Config = {
 				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
-					alt: 'hsl(var(--card))',
+					alt: 'hsl(var(--card-alt))',
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -31,6 +31,12 @@ const config: Config = {
 				overlay: {
 					DEFAULT: 'hsl(var(--overlay))',
 				},
+				button: {
+					hover: 'hsl(var(--button-hover))',
+				},
+			},
+			height: {
+				hero: 'calc(100vh - 120px)',
 			},
 		},
 	},

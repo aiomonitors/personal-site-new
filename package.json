@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "eslint-config-xo": "^0.45.0",
     "eslint-config-xo-react": "^0.27.0",
     "eslint-config-xo-typescript": "^4.0.0",
+    "framer-motion": "^11.2.6",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^5.2.1",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
