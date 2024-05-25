@@ -53,9 +53,9 @@ export async function ProjectCard({
 		},
 	} satisfies Variants;
 
-	// Const {base64, img} = await getImage(
-	// 	`${process.env.DOMAIN}${imageSrc}`,
-	// );
+	const {base64, img} = await getImage(
+		`${process.env.DOMAIN}${imageSrc}`,
+	);
 
 	return (
 		<motion.div
@@ -88,13 +88,13 @@ export async function ProjectCard({
 				<div className='image-wrapper w-full h-80 relative lg:h-full lg'>
 					<Image
 						fill
-						src={imageSrc}
+						src={img.src}
 						objectFit='cover'
 						alt={name}
 						quality={100}
 						className='rounded-md'
-						// BlurDataURL={base64}
-						// placeholder='blur'
+						blurDataURL={base64}
+						placeholder='blur'
 					/>
 				</div>
 			</div>
