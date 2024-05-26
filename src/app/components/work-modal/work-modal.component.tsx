@@ -4,6 +4,9 @@ import * as motion from '@/lib/motion';
 import {useScrollLock} from 'usehooks-ts';
 import {X} from 'lucide-react';
 import Image from 'next/image';
+import {useHotkeys} from 'react-hotkeys-hook';
+import {WorkOverview} from './work-overview';
+import {WorkDialogHeader} from './work-dialog-header';
 
 type WorkModalProps = {
 	readonly isVisible: boolean;
@@ -18,6 +21,8 @@ export function WorkModal({
 		autoLock: false,
 		lockTarget: 'body',
 	});
+
+	useHotkeys('escape', () => onClose());
 
 	useEffect(() => {
 		if (isVisible) {
@@ -89,7 +94,7 @@ export function WorkModal({
 					variants={bgVariants}
 				>
 					<motion.div
-						className='w-full max-w-5xl left-[50%] min-h-12 -translate-x-2/4 fixed p-1 lg:p-1 z-30 mt-2 bg-white rounded-3xl border-2 border-muted/20'
+						className='w-full max-w-5xl left-[50%] min-h-12 -translate-x-2/4 fixed p-1 lg:p-1 z-30 mt-2 bg-white rounded-full border-2 border-muted/20'
 						variants={navVariants}
 						initial='initial'
 						animate='animate'
@@ -100,18 +105,18 @@ export function WorkModal({
 						</button>
 					</motion.div>
 					<motion.div
-						className='max-w-5xl h-screen rounded-md w-full mt-20 flex flex-col'
+						className='max-w-5xl h-screen rounded-md w-full mt-20 flex flex-col p-5 lg:p-0'
 						variants={cardVariants}
 						initial='initial'
 						animate='animate'
 						exit='initial'
 					>
-						<div className='flex w-full justify-between items-center'>
-							<div className='flex flex-col'>
-								<h1 className='text-black font-bold text-3xl'>Prudential Financial</h1>
-								<span className='text-muted font-medium text-2xl'>Senior Software Engineer</span>
-								<span className='text-muted font-medium text-2xl'>September 2022 - Present</span>
-							</div>
+						<WorkDialogHeader>
+							<WorkDialogHeader.TextContent>
+								<WorkDialogHeader.Header>Prudential Financial</WorkDialogHeader.Header>
+								<WorkDialogHeader.Subtext>Senior Software Engineer</WorkDialogHeader.Subtext>
+								<WorkDialogHeader.Subtext>September 2022 - Present</WorkDialogHeader.Subtext>
+							</WorkDialogHeader.TextContent>
 							<Image
 								src='/pru.png'
 								className='rounded-lg'
@@ -120,20 +125,21 @@ export function WorkModal({
 								quality={100}
 								alt='Pru'
 							/>
-						</div>
-						<div className='flex flex-col'>
-							<h2 className='text-black font-medium text-2xl'>Overview</h2>
-							<ul className='text-md font-normal text-black list-disc list-outside'>
-								<li className='ml-5'>Lead a development team of 7 engineers in planning and developing a new life insurance web application, enforcing modern standards and introducing new tools to create a betterdevelopment lifecycle for engineers.</li>
-								<li className='ml-5'>Assisted early talent team with intern interviews for over 20 candidates</li>
-								<li className='ml-5'>Held year-round bi-weekly developer touchpoint to help mentor and guide junior developers on the team</li>
-								<li className='ml-5'>Used wide knowledge and proficiency in working with React applications to quickly respond and resolve 25+ production bugs in first months, resulting in faster bug fixes for our users</li>
-								<li className='ml-5'>Created documentation for an agile journey of over 150 developers to emphasize and enforce modern development standards</li>
-							</ul>
-						</div>
+						</WorkDialogHeader>
+						<WorkOverview>
+							<WorkOverview.Header>Overview</WorkOverview.Header>
+							<WorkOverview.List>
+								<WorkOverview.List.Item>Lead a development team of 7 engineers in planning and developing a new life insurance web application, enforcing modern standards and introducing new tools to create a betterdevelopment lifecycle for engineers.</WorkOverview.List.Item>
+								<WorkOverview.List.Item>Assisted early talent team with intern interviews for over 20 candidates</WorkOverview.List.Item>
+								<WorkOverview.List.Item>Held year-round bi-weekly developer touchpoint to help mentor and guide junior developers on the team</WorkOverview.List.Item>
+								<WorkOverview.List.Item>Used wide knowledge and proficiency in working with React applications to quickly respond and resolve 25+ production bugs in first months, resulting in faster bug fixes for our users</WorkOverview.List.Item>
+								<WorkOverview.List.Item>Created documentation for an agile journey of over 150 developers to emphasize and enforce modern development standards</WorkOverview.List.Item>
+							</WorkOverview.List>
+						</WorkOverview>
 					</motion.div>
 				</motion.div>
 			)}
 		</AnimatePresence>
 	);
 }
+
