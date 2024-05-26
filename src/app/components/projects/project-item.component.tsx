@@ -58,13 +58,13 @@ export async function ProjectCard({
 				</div>
 				<motion.button
 					type='button'
-					className='w-full p-3 bg-primary text-background justify-between rounded-3xl project-button-drop-shadow hidden lg:flex'
+					className='w-full p-3 bg-primary font-medium text-background justify-between rounded-3xl project-button-drop-shadow hidden lg:flex'
 					whileHover={{
 						scale: 1.03,
 					}}
 				>
 					<span>View  More</span>
-					<ChevronRight/>
+					<ChevronRight strokeWidth={3}/>
 				</motion.button>
 
 			</div>
@@ -84,10 +84,10 @@ export async function ProjectCard({
 			</div>
 			<button
 				type='button'
-				className='w-full p-3 bg-primary text-background justify-between rounded-md project-button-drop-shadow flex lg:hidden'
+				className='w-full p-3 bg-primary font-medium text-background justify-between rounded-md project-button-drop-shadow flex lg:hidden'
 			>
 				<span>View  More</span>
-				<ChevronRight/>
+				<ChevronRight strokeWidth={3}/>
 			</button>
 		</motion.div>
 	);
