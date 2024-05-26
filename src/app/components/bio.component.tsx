@@ -2,8 +2,13 @@ import React from 'react';
 import * as motion from '@/lib/motion';
 import Image from 'next/image';
 import {MutedText} from './shared/text.component';
+import {getImage} from '@/lib/image';
 
 export async function Bio() {
+	const {base64, img} = await getImage(
+		`${process.env.DOMAIN}/me.jpg`,
+	);
+
 	return (
 		<motion.div
 			className='mt-20 w-full flex items-center justify-center flex-col gap-10 lg:flex-row lg:gap-40 lg:px-20 lg:py-10'
@@ -21,15 +26,18 @@ export async function Bio() {
 						duration: 0.3,
 					},
 				}}
+				viewport={{once: true}}
 			>
 				<div className='w-80 h-80 relative'>
 					<Image
 						fill
-						src='/me.jpg'
+						src={img.src}
 						alt='Me'
 						objectFit='cover'
 						quality={100}
 						className='drop-shadow-lg'
+						placeholder='blur'
+						blurDataURL={base64}
 					/>
 				</div>
 				<span className='text-md text-black font-medium'>📍 Brooklyn, NY</span>

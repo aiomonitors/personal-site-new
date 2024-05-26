@@ -3,8 +3,8 @@ import React from 'react';
 import {ChevronRight} from 'lucide-react';
 import {type Variants} from 'framer-motion';
 import * as motion from '@/lib/motion';
-import {getPlaiceholder} from 'plaiceholder';
 import {headers} from 'next/headers';
+import {getImage} from '@/lib/image';
 
 export type ProjectCardProps = {
 	readonly name: string;
@@ -13,22 +13,6 @@ export type ProjectCardProps = {
 	readonly description: string;
 	readonly imageSrc: string;
 	readonly index: number;
-};
-
-const getImage = async (src: string) => {
-	const buffer = await fetch(src).then(async res =>
-		Buffer.from(await res.arrayBuffer()),
-	);
-
-	const {
-		metadata: {height, width},
-		...plaiceholder
-	} = await getPlaiceholder(buffer, {size: 10});
-
-	return {
-		...plaiceholder,
-		img: {src, height, width},
-	};
 };
 
 export async function ProjectCard({
