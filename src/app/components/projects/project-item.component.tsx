@@ -84,8 +84,8 @@ export async function ProjectCard({
 				</motion.button>
 
 			</div>
-			<div className='right-section w-full flex h-80 items-center bg-project-image/20 rounded-md lg:min-h-96'>
-				<div className='image-wrapper w-full h-80 relative lg:h-full lg'>
+			<div className='right-section w-full flex h-32 md:h-80 items-center bg-project-image/20 rounded-md lg:min-h-96'>
+				<div className='image-wrapper w-full h-32 md:h-80 relative lg:h-full lg'>
 					<Image
 						fill
 						src={img.src}
