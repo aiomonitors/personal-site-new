@@ -7,6 +7,7 @@ export type WorkItemProps = {
 	readonly role: string;
 	readonly dates: string;
 	readonly imageSrc: string;
+	readonly onClick: () => unknown;
 };
 
 export function WorkItem({
@@ -14,6 +15,7 @@ export function WorkItem({
 	role,
 	dates,
 	imageSrc,
+	onClick,
 }: WorkItemProps) {
 	return (
 		<div
@@ -38,7 +40,7 @@ export function WorkItem({
 			</div>
 			<div className='buttons-container flex gap-3 basis-0'>
 				<button className='text-sm w-full px-3 py-2 bg-transparent mr-2 border-white border-2 rounded-md font-medium' type='button'>View Site</button>
-				<button className='text-sm w-full px-2 bg-white text-button-hover outline-none shadow-none rounded-md font-medium' type='button'>More Info</button>
+				<button className='text-sm w-full px-2 bg-white text-button-hover outline-none shadow-none rounded-md font-medium' type='button' onClick={onClick}>More Info</button>
 			</div>
 		</div>
 	);

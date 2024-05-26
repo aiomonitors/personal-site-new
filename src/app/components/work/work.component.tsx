@@ -1,7 +1,8 @@
 'use client';
-import React from 'react';
+import React, {useState} from 'react';
 import * as motion from '@/lib/motion';
 import {WorkItem, type WorkItemProps} from './work-item.component';
+import {WorkModal} from '../work-modal/work-modal.component';
 
 const items = [
 	{
@@ -22,9 +23,11 @@ const items = [
 		dates: 'Dates',
 		imageSrc: '/scout.png',
 	},
-] satisfies WorkItemProps[];
+] satisfies Array<Omit<WorkItemProps, 'onClick'>>;
 
 export function WorkSection() {
+	const [showWorkModal, setShowWorkModal] = useState(false);
+
 	const workVariants = {
 		initial: {
 			translateX: -100,
@@ -46,33 +49,45 @@ export function WorkSection() {
 			opacity: 1,
 		}),
 	};
-	return (
-		<motion.div
-			className='work-section flex flex-col'
-			variants={workVariants}
-			initial='initial'
-			whileInView='visible'
-			viewport={{once: true}}
-		>
-			<span className='work-section-header text-3xl text-primary font-bold mb-2'>Work Experience</span>
 
+	const onWorkItemClick = () => {
+		setShowWorkModal(true);
+	};
+
+	const onWorkItemClose = () => {
+		setShowWorkModal(false);
+	};
+
+	return (
+		<>
+			<WorkModal isVisible={showWorkModal} onClose={onWorkItemClose}/>
 			<motion.div
-				className='work-items flex flex-col gap-5'
-				variants={{
-					visible: {
-						transition: {
-							staggerChildren: 0.2,
-							delayChildren: 0.5,
-						},
-					},
-				}}
+				className='work-section flex flex-col'
+				variants={workVariants}
+				initial='initial'
+				whileInView='visible'
+				viewport={{once: true}}
 			>
-				{items.map((item, i) => (
-					<motion.div key={`${item.name}`} variants={itemVariants} custom={i}>
-						<WorkItem {...item}/>
-					</motion.div>
-				))}
+				<span className='work-section-header text-3xl text-primary font-bold mb-2'>Work Experience</span>
+
+				<motion.div
+					className='work-items flex flex-col gap-5'
+					variants={{
+						visible: {
+							transition: {
+								staggerChildren: 0.2,
+								delayChildren: 0.5,
+							},
+						},
+					}}
+				>
+					{items.map((item, i) => (
+						<motion.div key={`${item.name}`} variants={itemVariants} custom={i}>
+							<WorkItem {...item} onClick={onWorkItemClick}/>
+						</motion.div>
+					))}
+				</motion.div>
 			</motion.div>
-		</motion.div>
+		</>
 	);
 }
