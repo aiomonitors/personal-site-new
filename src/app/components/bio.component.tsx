@@ -56,6 +56,7 @@ export async function Bio() {
 						duration: 0.3,
 					},
 				}}
+				viewport={{once: true}}
 			>
 				<MutedText>Born, raised, and still thriving in </MutedText> New York City. <MutedText>I’ve been</MutedText> developing software for over four years new, focusing on highly efficient and scalable automation systems, web applications, and desktop apps.
 				<br/>
