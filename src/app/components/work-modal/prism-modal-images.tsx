@@ -71,7 +71,6 @@ export default function PrismModalImages() {
 									objectFit: 'contain',
 								}}
 								alt='Prism'
-								placeholder='blur'
 							/>
 						</motion.div>
 					</motion.div>
