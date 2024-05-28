@@ -3,6 +3,9 @@ import React, {useState} from 'react';
 import * as motion from '@/lib/motion';
 import {WorkItem, type WorkItemProps} from './work-item.component';
 import {WorkModal} from '../work-modal/work-modal.component';
+import {PrismWorkModal} from '../work-modal/prism-work-moda.component';
+import PrismModalImages from '../work-modal/prism-modal-images';
+import {ScoutWorkModal} from '../work-modal/scout-work-modal.component';
 
 const items = [
 	{
@@ -10,23 +13,26 @@ const items = [
 		role: 'Senior Software Engineer',
 		dates: 'September 2022 - Present',
 		imageSrc: '/pru.png',
+		itemId: 'pru',
 	},
 	{
 		name: 'Prism Technologies',
 		role: 'Senior Software Engineer',
 		dates: 'June 2021 - September 2022',
 		imageSrc: '/prism.png',
+		itemId: 'prism',
 	},
 	{
 		name: 'Scout',
 		role: 'Software Engineer (Web)',
 		dates: 'Dates',
 		imageSrc: '/scout.png',
+		itemId: 'scout',
 	},
-] satisfies Array<Omit<WorkItemProps, 'onClick'>>;
+] satisfies Array<Omit<WorkItemProps, 'onClick'> & {itemId: string}>;
 
 export function WorkSection() {
-	const [showWorkModal, setShowWorkModal] = useState(false);
+	const [showWorkModal, setShowWorkModal] = useState('none');
 
 	const workVariants = {
 		initial: {
@@ -50,17 +56,24 @@ export function WorkSection() {
 		}),
 	};
 
-	const onWorkItemClick = () => {
-		setShowWorkModal(true);
+	const onWorkItemClick = (item: string) => () => {
+		setShowWorkModal(item);
+		console.log('onClick');
 	};
 
 	const onWorkItemClose = () => {
-		setShowWorkModal(false);
+		setShowWorkModal('none');
 	};
 
 	return (
 		<>
-			<WorkModal isVisible={showWorkModal} onClose={onWorkItemClose}/>
+			<PrismWorkModal isVisible={showWorkModal === 'prism'} onClose={onWorkItemClose}>
+				<PrismModalImages/>
+			</PrismWorkModal>
+
+			<WorkModal isVisible={showWorkModal === 'pru'} onClose={onWorkItemClose}/>
+			<ScoutWorkModal isVisible={showWorkModal === 'scout'} onClose={onWorkItemClose}/>
+
 			<motion.div
 				className='work-section flex flex-col'
 				variants={workVariants}
@@ -83,7 +96,7 @@ export function WorkSection() {
 				>
 					{items.map((item, i) => (
 						<motion.div key={`${item.name}`} variants={itemVariants} custom={i}>
-							<WorkItem {...item} onClick={onWorkItemClick}/>
+							<WorkItem {...item} onClick={onWorkItemClick(item.itemId)}/>
 						</motion.div>
 					))}
 				</motion.div>

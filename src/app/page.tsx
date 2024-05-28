@@ -6,7 +6,6 @@ import * as motion from '@/lib/motion';
 import {Nav} from './components/nav.component';
 import {Bio} from './components/bio.component';
 import {Hero} from './components/hero.component';
-import {WorkSection} from './components/work/work.component';
 import {
 	SiSolidity,
 	SiTypescript,
@@ -25,6 +24,7 @@ import {
 import {TechGrid, TechCard, TechTitle} from './components/tech-stack/tech-grid.component';
 import {Projects} from './components/projects/projects.component';
 import {Contact} from './components/contact/contact.component';
+import {WorkSection} from './components/work/work.component';
 
 export default function Home() {
 	const workVariants = {

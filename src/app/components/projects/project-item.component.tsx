@@ -38,7 +38,7 @@ export async function ProjectCard({
 	} satisfies Variants;
 
 	const {base64, img} = await getImage(
-		`${process.env.DOMAIN}${imageSrc}`,
+		imageSrc,
 	);
 
 	return (

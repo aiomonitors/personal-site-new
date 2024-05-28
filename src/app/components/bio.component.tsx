@@ -6,7 +6,7 @@ import {getImage} from '@/lib/image';
 
 export async function Bio() {
 	const {base64, img} = await getImage(
-		`${process.env.DOMAIN}/me.jpg`,
+		'/me.jpg',
 	);
 
 	return (
