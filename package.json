@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@plaiceholder/next": "^3.0.0",
     "clsx": "^2.1.1",
     "eslint-config-xo": "^0.45.0",
     "eslint-config-xo-react": "^0.27.0",
