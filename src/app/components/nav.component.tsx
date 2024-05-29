@@ -20,6 +20,9 @@ export function Nav() {
 				translateY: 0,
 				opacity: 1,
 				translateX: '-50%',
+				transition: {
+					delay: 1.5,
+				},
 			}}
 		>
 			<div className='w-full bg-card-alt py-3 px-2 rounded-lg flex items-center justify-between h-16 border-muted/30 border-2'>

@@ -29,7 +29,7 @@ export function Hero() {
 
 	return (
 		<motion.div
-			className='mt-20 w-full h-hero bg-card rounded-md flex items-center justify-between p-5 border-box md:p-10'
+			className='mt-20 w-full h-hero rounded-md flex items-center justify-between p-5 border-box md:p-10'
 			initial={{
 				translateY: -200,
 				opacity: 0,
